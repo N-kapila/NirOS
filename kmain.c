@@ -1,7 +1,8 @@
-#include "io.h"
 #include "writer.h"
 #include "serial_port.h"
 #include "segmentation/memory_segments.h"
+#include "interrupts/interrupts.h"
+#include "interrupts/keyboard.h"
 
 void kmain(){
 
@@ -9,6 +10,8 @@ void kmain(){
 	
 	char ptr1[]="Hello! Welcome to NirOS";
 	char ptr2[]="Hello! I'm Nirmal!";
-	fb_write(24,ptr1);
-	serial_write(0x3F8,ptr2,20);
+	fb_write_str(ptr1,24);
+	serial_write(ptr2,20);
+	
+	interrupts_install_idt();
 }
