@@ -34,4 +34,5 @@
 	$(AS) $(ASFLAGS) $< -o $@
 
     clean:
-	rm -rf *.o kernel.elf os.iso
+    	
+  
