@@ -4,6 +4,7 @@
 #include "interrupts/keyboard.h"
 #include "interrupts/interrupts.h"
 #include "multiboot.h"
+#include "paging/paging.h"
 
 void init(){
 
@@ -13,6 +14,11 @@ void init(){
     
     //initialize interrupt descriptor table
     interrupts_install_idt();
+    
+    init_paging();
+	/* test page fault 	
+	unsigned int *ptr = (unsigned int*)0xA0000000;
+   	unsigned int do_page_fault = *ptr;*/
 	
 	
 }
